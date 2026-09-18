@@ -2,7 +2,7 @@
 
 AI-connected personal planning platform. **powered by IN NET CREATIONS**.
 
-This repo currently implements **Phase 1 — Foundation** from `in-net-calendar-mega-prompt.md`.
+This repo currently implements **Phases 1–3** (foundation, tasks, calendar/events) from `in-net-calendar-mega-prompt.md`.
 
 ## Stack
 
@@ -44,7 +44,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Manual checks for Phase 1
+## What Phase 2 includes
+
+- Task create / edit / complete / incomplete
+- Soft-delete to Trash and restore
+- Four-level urgency (Emergency / High / Medium / Low)
+- Dashboard counters + today’s list sorted by urgency
+- TanStack Query with optimistic complete/edit/delete
+- Shared Zod schema: `lib/schemas/task.ts`
+
+**Manual checks:** create a task due today, complete it (stays after refresh), edit urgency, trash it, restore it.
 
 - Sign up, open the verify email link, land on onboarding, then dashboard
 - Refresh the dashboard and stay signed in
@@ -61,4 +70,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deferred
 
-Phases 2–10: tasks, calendar/events, recurrence, reminders, search, AI chat, public API, MCP, PWA/analytics/robot mascot.
+Phases 4–10: recurrence, reminders, search, AI chat, public API, MCP, PWA/analytics/robot mascot.

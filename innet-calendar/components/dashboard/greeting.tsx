@@ -19,7 +19,9 @@ export function DashboardGreeting({ name }: DashboardGreetingProps) {
       <h1 className="text-2xl font-semibold tracking-tight">
         {greetingForHour(hour)}, {name}
       </h1>
-      <p className="text-sm text-muted-foreground">Your planning layer is ready. Tasks and events come in Phase 2–3.</p>
+      <p className="text-sm text-muted-foreground">
+        Today’s tasks and the next 7 days of events share the same live data as Tasks and Calendar.
+      </p>
     </div>
   );
 }

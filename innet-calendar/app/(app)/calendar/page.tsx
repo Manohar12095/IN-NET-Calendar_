@@ -1,11 +1,19 @@
-export default function CalendarPlaceholderPage() {
+import { CalendarPageClient } from "@/components/calendar/calendar-page-client";
+import { getAccountContext } from "@/lib/account";
+import { redirect } from "next/navigation";
+
+export default async function CalendarPage() {
+  const account = await getAccountContext();
+  if (!account) {
+    redirect("/login");
+  }
+
   return (
-    <div className="mx-auto max-w-2xl">
-      <h1 className="text-2xl font-semibold tracking-tight">Calendar</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Phase 3 adds month, week, day, and agenda views over the same `events` table, plus
-        click-to-create and history navigation.
-      </p>
-    </div>
+    <CalendarPageClient
+      timezone={account.profile.timezone}
+      timeFormat={account.settings.time_format}
+      weekStart={account.settings.week_start}
+      defaultView={account.settings.default_view}
+    />
   );
 }

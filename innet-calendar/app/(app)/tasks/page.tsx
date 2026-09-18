@@ -1,11 +1,14 @@
-export default function TasksPlaceholderPage() {
+import { TasksPageClient } from "@/components/tasks/tasks-page-client";
+import { getAccountContext } from "@/lib/account";
+import { redirect } from "next/navigation";
+
+export default async function TasksPage() {
+  const account = await getAccountContext();
+  if (!account) {
+    redirect("/login");
+  }
+
   return (
-    <div className="mx-auto max-w-2xl">
-      <h1 className="text-2xl font-semibold tracking-tight">Tasks</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        Phase 2 adds full task CRUD, four-level urgency, optimistic updates, and the shared Zod
-        schema in `lib/schemas/task.ts`.
-      </p>
-    </div>
+    <TasksPageClient timezone={account.profile.timezone} timeFormat={account.settings.time_format} />
   );
 }

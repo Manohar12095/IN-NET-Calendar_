@@ -417,3 +417,4 @@ export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 export type Settings = Database["public"]["Tables"]["settings"]["Row"];
 export type Task = Database["public"]["Tables"]["tasks"]["Row"];
 export type EventRow = Database["public"]["Tables"]["events"]["Row"];
+export type Category = Database["public"]["Tables"]["categories"]["Row"];
